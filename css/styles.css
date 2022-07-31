@@ -1,0 +1,91 @@
+@font-face {
+    font-family:'general' ;
+    src: url('../fonts/general.ttf');
+}
+
+*{
+    margin:0px;
+    font-family:general;
+}
+main{
+    width: 60%;
+    margin:auto;
+}
+main h1{
+    text-align: center;
+}
+form{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+form label{
+    letter-spacing: 1px;
+}
+.inputs{
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    margin-bottom: 10px;
+}
+.inputs input{
+    padding: 6px;
+    border: 1px solid rgb(79, 167, 230);
+    border-radius: 5px;
+    outline: none;
+}
+
+.inputs input:focus{
+    box-shadow: 0px 0px 3px 1px rgb(79, 167, 230);
+}
+
+form .btn{
+    padding: 10px;
+    font-weight: 600;
+    background-color: rgb(79, 167, 230);
+    color: white;
+    border: none;
+    border-radius: 3px;
+}
+form .btn:hover{
+    box-shadow: 0px 0px 3px 0px rgba(108, 106, 106, 0.533) inset;
+    cursor: pointer;
+}
+form .btn:active{
+    box-shadow: 0px 0px 3px 0px rgba(108, 106, 106, 0.533) inset;
+}
+
+.mensajeExito{
+    width: 100%;
+    padding: 30px;
+    text-align: center;
+    background-color: rgb(81, 132, 81);
+    color: white;
+    border-radius: 10px;
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+}
+.gasto{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(22, 80, 168, 0.519);
+    color: white;
+    padding: 10px;
+    border: 1px solid rgb(22, 81, 168);
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+.gasto .delete{
+    width: 35px;
+    height: 30px;
+    background-color: rgb(226, 56, 56);
+    color: white;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+}
+.gasto .delete:hover{
+    background-color: rgb(226, 77, 77);
+}
