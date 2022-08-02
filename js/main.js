@@ -1,19 +1,26 @@
 class Gasto {
-    constructor(motivo, fecha, costo) {
+    constructor(motivo, fecha, costo ,id) {
         this.motivo = motivo;
         this.fecha = fecha;
         this.costo = costo;
-        this.id = Date.now()
+        this.id = id;
     }
 
     imprimirGastos(gastos){
+        let mensaje=`Gastos \n`
         gastos.forEach((gasto,index) => {
-            console.log(`Gasto ${index+1} - Motivo: ${gasto.motivo} , Fecha: ${gasto.fecha} , Costo: ${gasto.costo}`)
+            mensaje+=`Gasto ${index+1} - Motivo: ${gasto.motivo} , Fecha: ${gasto.fecha} , Costo: $${gasto.costo} , ID: ${gasto.id}\n`;
         });
+        return mensaje;
+    }
+
+    borrarGasto(gastos,id){
+        return gastos.filter((gasto)=>gasto.id!=id);
     }
 }
 
 let gastos = [];
+let id=0;
 const gasto=new Gasto();
 
 validar()
@@ -24,7 +31,19 @@ while (confirmacion) {
     confirmacion = confirm('Quieres agregar otro gasto?');
 }
 
-gasto.imprimirGastos(gastos)
+alert(gasto.imprimirGastos(gastos));
+
+const borrarConfirm=confirm('Deseas borrar un gasto?');
+if(borrarConfirm){
+    let idGasto=prompt(`
+        ${gasto.imprimirGastos(gastos)}\n
+        Elige el gasto que quieres borrar ingresando su numero de id.
+    `);
+
+    gastos=gasto.borrarGasto(gastos,parseInt(idGasto));
+}
+
+alert(gasto.imprimirGastos(gastos));
 console.log(gastos)
 
 
@@ -46,8 +65,8 @@ function validar(){
         costo = parseInt(prompt('Ingrese un costo correctamente'));
     }
     
-    
-    let gasto = new Gasto(motivo, fecha, parseInt(costo));
+    id++;
+    let gasto = new Gasto(motivo, fecha, parseInt(costo),id);
     gastos.push(gasto)
 }
 
