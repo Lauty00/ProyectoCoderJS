@@ -48,10 +48,15 @@ form label{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     border: 2px solid rgb(23, 120, 55);
     border-radius: 5px;
 }
 .list__item span{
-    text-align: center;
+    text-align: left;
     flex-basis: 30%;
+    padding-left: 10px;
+}
+.list__item .eliminar{
+    flex-basis: 10%;
 }

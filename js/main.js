@@ -10,6 +10,11 @@ class Gasto {
         this.gastos.push(gasto)
     }
 
+    borrarGasto(id){
+        this.gastos=this.gastos.filter((gasto)=>gasto.id!=id);
+        this.imprimirGastos();
+    }
+   
     imprimirGastos(){
         const list=document.querySelector('.list');
         limpiarHTML(list);
@@ -17,22 +22,28 @@ class Gasto {
            
             const item=document.createElement('li');
             item.classList.add('list__item')
+            item.setAttribute('data-id',gasto.id);
             item.innerHTML=`
-                <span>Motivo: ${gasto.motivo}</span>
-                <span>Fecha: ${gasto.fecha}</span>
-                <span>Dinero: $${gasto.costo}</span>
+                <span><strong>Motivo</strong>: ${gasto.motivo}</span>
+                <span><strong>Fecha</strong>: ${gasto.fecha}</span>
+                <span><strong>Dinero</strong>: $${gasto.costo}</span>
+                <button class='btn btn-danger eliminar'>Eliminar</button>
             `;
             list.append(item);
         });
+    
+        agregarLS();
     }
-
-    borrarGasto(id){
-        return this.gastos.filter((gasto)=>gasto.id!=id);
-    }
+   
+    
 }
 
 const form=document.querySelector('#form');
-const gastos=new Gasto();
+const gasto=new Gasto();
+const list=document.querySelector('.list');
+document.addEventListener('DOMContentLoaded',()=>{
+    cargarLS();
+})
 
 form.addEventListener('submit',(e)=>{
     e.preventDefault()
@@ -40,13 +51,21 @@ form.addEventListener('submit',(e)=>{
     const fecha=document.querySelector("input[name='fecha']").value;
     const dinero=document.querySelector("input[name='dinero']").value;
 
-    let gasto=new Gasto(motivo,fecha,parseInt(dinero),Date.now());
+    let gastoAguardar=new Gasto(motivo,fecha,parseInt(dinero),Date.now());
 
-    console.log(gasto);
-    gastos.agregarGasto(gasto)
-    gastos.imprimirGastos()
+    console.log(gastoAguardar);
+    gasto.agregarGasto(gastoAguardar)
+    gasto.imprimirGastos()
 
     form.reset()
+})
+
+
+list.addEventListener('click',(e)=>{
+    if(e.target.classList.contains('btn')){
+        let id=e.target.parentElement.dataset.id;
+        gasto.borrarGasto(id);
+    }
 })
 
 function limpiarHTML(etiqueta){
@@ -54,6 +73,17 @@ function limpiarHTML(etiqueta){
         etiqueta.removeChild(etiqueta.firstChild);
     }
 }
+
+
+function agregarLS(){
+    localStorage.setItem('gastos',JSON.stringify(gasto.gastos));
+}
+
+function cargarLS(){
+    gasto.gastos=JSON.parse(localStorage.getItem('gastos'));
+    gasto.imprimirGastos();
+}
+
 
 
 
