@@ -58,5 +58,19 @@ form label{
     padding-left: 10px;
 }
 .list__item .eliminar{
-    flex-basis: 10%;
+    flex-basis: 5%;
+
+}
+.list__item .editar{
+    flex-basis: 5%;
+    margin-right: 2px;
+    color: white;
+}
+
+.saldo{
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(23,120,55);
+    color: white;
+    margin: 20px 0px;
 }
