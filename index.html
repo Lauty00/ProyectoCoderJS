@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">\
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="./css/styles.css">
     <title>Document</title>
 </head>
@@ -19,6 +19,12 @@
         </span>
 
         <form id="form">
+            <div class="form-check">
+                <input class="d-none" type="radio" name="metodo" id="ingreso" >
+                <label class="p-2  text-white rounded-2" for="ingreso">Ingreso</label>
+                <input class="d-none" type="radio" name="metodo" id="gasto" >
+                <label class="p-2  text-white ms-3 rounded-2" for="gasto" >Gasto</label>
+            </div>
             <div class="inputs">
                 <label for="motivo">Motivo</label>
                 <input type="text" name="motivo" required>
@@ -40,11 +46,11 @@
             <ul class="list">
 
             </ul>
-
+            <button class="btn-reset btn btn-info text-white">Resetear gestor</button>
         </div>
     </main>
-    <script src="./js/bootstrap.bundle.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
+    <script src="./bootstrap/bootstrap.bundle.js"></script>
+    <script src="./bootstrap/bootstrap.min.js"></script>
     <script src="./js/main.js" type="module"></script>
 </body>
 
