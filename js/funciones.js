@@ -95,14 +95,21 @@ function validar(e){
         gasto.imprimirGastos();
         document.querySelector('label[for="ingreso"] ').style.backgroundColor='gray';
         document.querySelector('label[for="gasto"] ').style.backgroundColor='gray';
-        mensajeAlert('guardar');
+        
+        if(check2.checked){
+            mensajeAlert('guardar');
+        }else{
+            mensajeAlert();
+        }
+        
         form.reset();
     }
 }
 
 function btnGastos(e){
+    console.log(e.target)
     if(e.target.classList.contains('eliminar')){
-        let id=e.target.parentElement.dataset.id;
+        let id=e.target.parentElement.parentElement.dataset.id;
         let eliminated=gasto.gastos.find(gasto=>gasto.id==id);
         if(eliminated.metodo){
             saldo-=eliminated.costo;
@@ -113,13 +120,6 @@ function btnGastos(e){
         mostrarSalario(saldo);
         gasto.borrarGasto(id);
         localStorage.setItem('saldo',saldo);
-    }
-    else if(e.target.classList.contains('editar')){
-        let id=e.target.parentElement.dataset.id;
-        let gastoEdit=gasto.gastos.find(gasto=>gasto.id==id);
-        gasto.editarGasto(gastoEdit);
-        saldo+=gastoEdit.costo;
-        mostrarSalario(saldo)
     }
 }
 
@@ -141,6 +141,12 @@ function mensajeAlert(p){
         divAlert.classList.add('text-center','p-4','bg-success','text-white','rounded-3','mt-3');
         divAlert.innerHTML=`
         Gasto guardado correctamente.
+        `;
+        form.append(divAlert);
+    }else{
+        divAlert.classList.add('text-center','p-4','bg-success','text-white','rounded-3','mt-3');
+        divAlert.innerHTML=`
+        Ingreso guardado correctamente.
         `;
         form.append(divAlert);
     }

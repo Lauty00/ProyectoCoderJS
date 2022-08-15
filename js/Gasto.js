@@ -20,19 +20,6 @@ export default class Gasto {
         this.gastos=this.gastos.filter((gasto)=>gasto.id!=id);
         this.imprimirGastos();
     }
-    editarGasto(gasto){
-        const {motivo,fecha,costo,id}=gasto;
-    
-        let motivoInput=document.querySelector("input[name='motivo']");
-        let fechaInput=document.querySelector("input[name='fecha']");
-        let costoInput=document.querySelector("input[name='dinero']");
-
-        motivoInput.value=motivo;
-        fechaInput.value=fecha;
-        costoInput.value=costo;
-
-        this.borrarGasto(id);
-    }
    
     imprimirGastos(){
         const list=document.querySelector('.list');
@@ -47,11 +34,13 @@ export default class Gasto {
             
             item.setAttribute('data-id',gasto.id);
             item.innerHTML=`
-                <span><strong>Motivo</strong>: ${gasto.motivo}</span>
-                <span><strong>Fecha</strong>: ${gasto.fecha}</span>
-                <span><strong>Dinero</strong>: $${gasto.costo}</span>
-                <button class='btn btn-info editar'>Editar</button>
-                <button class='btn btn-danger eliminar'>Eliminar</button>
+                <span><strong>Motivo:</strong> ${gasto.motivo}</span>
+                <span><strong>Fecha:</strong> ${gasto.fecha}</span>
+                <span><strong>Dinero:</strong> $${gasto.costo}</span>
+                <div class='btn-content'>
+                    <button class='btn btn-danger eliminar'>Eliminar</button>
+                </div>
+                
             `;
             list.append(item);
         });

@@ -1,11 +1,10 @@
 import { cargarLS,events } from "./funciones.js";
 
 
-document.addEventListener('DOMContentLoaded',()=>{
+window.addEventListener('load',function(e){
     cargarLS()
     events();
 })
-
 
 
 

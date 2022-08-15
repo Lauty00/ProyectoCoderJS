@@ -4,15 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">\
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="./css/styles.css">
+    <script src="./bootstrap/bootstrap.bundle.js"></script>
+    <script src="./bootstrap/bootstrap.min.js"></script>
+    <script src="./js/main.js" type="module"></script>
     <title>Document</title>
 </head>
 
 <body>
     <main id="main">
-        <h1>Gestor de gastos</h1>
+        <h1 class="title mb-5">Gestor de gastos</h1>
 
         <span class="saldo">
             
@@ -38,7 +41,7 @@
                 <input type="text" name="dinero" required>
             </div>
 
-            <button class="btn btn-info">guardar</button>
+            <button class="btn btn-info text-white">guardar</button>
         </form>
 
 
@@ -49,9 +52,7 @@
             <button class="btn-reset btn btn-info text-white">Resetear gestor</button>
         </div>
     </main>
-    <script src="./bootstrap/bootstrap.bundle.js"></script>
-    <script src="./bootstrap/bootstrap.min.js"></script>
-    <script src="./js/main.js" type="module"></script>
+    
 </body>
 
 </html>

@@ -2,21 +2,39 @@
     font-family:'general' ;
     src: url('../fonts/general.ttf');
 }
+html{
+    font-size: 62.5%;
+}
 
 *{
     margin:0px;
     font-family:general;
 }
+body{
+    background: rgb(61,139,128);
+    background: linear-gradient(90deg, rgba(61,139,128,1) 0%, rgba(25,165,163,1) 48%, rgba(0,191,173,1) 100%);
+}
+
+.title{
+    font-size: 2.5em;
+}
+
+.btn{
+    font-size: 1em !important ;
+}
+
 main{
     width: 60%;
     margin:auto;
+    padding-top: 40px;
+    font-size: 1.8em;
 }
 main h1{
     text-align: center;
 }
 form{
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
 }
 form label{
     letter-spacing: 1px;
@@ -25,10 +43,10 @@ form label{
     display: flex;
     flex-direction: column;
     row-gap: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
 }
 .inputs input{
-    padding: 6px;
+    padding: .6rem;
     border: 1px solid rgb(79, 167, 230);
     border-radius: 5px;
     outline: none;
@@ -46,45 +64,45 @@ form label{
     padding: 0;
 }
 .list__item{
-    padding: 10px;
-    margin: 10px 0px;
+    padding: 1rem;
+    margin: 1rem 0px;
     list-style: none;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     border-radius: 5px;
+    color: black;
+    background-color: RGB(255,255,255,.5);
 }
 .list__item span{
     text-align: left;
     flex-basis: 30%;
-    padding-left: 10px;
+    padding-left: 1rem;
+}
+.btn-content{
+    display: flex;
+    flex-direction: row;
 }
 .list__item .eliminar{
     flex-basis: 5%;
-
-}
-.list__item .editar{
-    flex-basis: 5%;
-    margin-right: 2px;
-    color: white;
 }
 
 .saldo{
-    padding: 10px;
+    padding: 1rem;
     border-radius: 10px;
     background-color: rgb(23,120,55);
     color: white;
-    margin: 20px 0px;
+    margin: 2rem 0px;
 }
 .form-check{
     padding: 0px;
-    margin: 20px 0;
+    margin: 2rem 0;
 }
 .form-check input{
 }
 .form-check #gasto{
-    margin-left: 10px;
+    margin-left: 1rem;
 }
 
 .form-check label{
@@ -99,5 +117,49 @@ form label{
 }
 
 .btn-reset{
-
+    margin-bottom: 1rem;
 }
+
+
+@media (max-width:1012px) {
+    .list__item span {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (max-width:768px) {
+    .list{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+    .list__item {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .btn-content {
+        gap: 1rem;
+    }
+    .list__item span {
+        padding-left: 0px;
+    }
+}
+
+@media (max-width:590px) {
+    main {
+        width: 90%;
+
+    }
+}
+
+
+@media (max-width:425px){
+    .list {
+        grid-template-columns: 1fr;
+        gap: 0px;
+    }
+}
+
