@@ -34,9 +34,11 @@ export default class Gasto {
             
             item.setAttribute('data-id',gasto.id);
             item.innerHTML=`
-                <span><strong>Motivo:</strong> ${gasto.motivo}</span>
-                <span><strong>Fecha:</strong> ${gasto.fecha}</span>
-                <span><strong>Dinero:</strong> $${gasto.costo}</span>
+                <div class='result'>
+                    <span><strong>Motivo:</strong> ${gasto.motivo}</span>
+                    <span><strong>Fecha:</strong> ${gasto.fecha}</span>
+                    <span><strong>Dinero:</strong> $${gasto.costo}</span>
+                </div>
                 <div class='btn-content'>
                     <button class='btn btn-danger eliminar'>Eliminar</button>
                 </div>

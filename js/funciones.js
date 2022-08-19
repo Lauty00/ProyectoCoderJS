@@ -42,7 +42,6 @@ function btnChecked(){
     let check1Label=document.querySelector('label[for="ingreso"] ');
     let check2Label=document.querySelector('label[for="gasto"] ');
 
-    console.log(check1Label)
 
     if(check1.checked){
         metodoG=true;
@@ -79,14 +78,8 @@ function validar(e){
         mensajeAlert('error');
     }else{
         let gastoAguardar=new Gasto(motivoInput,fechaInput,parseInt(dineroInput),Date.now(),metodoG);
-        if(gastoAguardar.metodo){
-            saldo+=Number(dineroInput);
-            console.log(saldo)
-        }else{
-            saldo-=Number(dineroInput);
-            console.log(saldo)
 
-        }
+        gastoAguardar.metodo ? saldo+=Number(dineroInput) : saldo-=Number(dineroInput);
         
         localStorage.setItem('saldo',saldo);
         mostrarSalario(saldo);
@@ -96,26 +89,18 @@ function validar(e){
         document.querySelector('label[for="ingreso"] ').style.backgroundColor='gray';
         document.querySelector('label[for="gasto"] ').style.backgroundColor='gray';
         
-        if(check2.checked){
-            mensajeAlert('guardar');
-        }else{
-            mensajeAlert();
-        }
-        
+        check2.checked ? mensajeAlert('guardar') : mensajeAlert();
+            
         form.reset();
     }
 }
 
 function btnGastos(e){
-    console.log(e.target)
     if(e.target.classList.contains('eliminar')){
         let id=e.target.parentElement.parentElement.dataset.id;
         let eliminated=gasto.gastos.find(gasto=>gasto.id==id);
-        if(eliminated.metodo){
-            saldo-=eliminated.costo;
-        }else{
-            saldo+=eliminated.costo;
-        }
+        
+        eliminated.metodo ? saldo-=eliminated.costo : saldo+=eliminated.costo;
         
         mostrarSalario(saldo);
         gasto.borrarGasto(id);
