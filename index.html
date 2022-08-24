@@ -7,6 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="./css/styles.css">
+    <!-- alertify -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
+
     <script src="./bootstrap/bootstrap.bundle.js"></script>
     <script src="./bootstrap/bootstrap.min.js"></script>
     <script src="./js/main.js" type="module"></script>
@@ -18,15 +23,15 @@
         <h1 class="title mb-5">Gestor de gastos</h1>
 
         <span class="saldo">
-            
+
         </span>
 
         <form id="form">
             <div class="form-check">
-                <input class="d-none" type="radio" name="metodo" id="ingreso" >
+                <input class="d-none" type="radio" name="metodo" id="ingreso">
                 <label class="p-2  text-white rounded-2" for="ingreso">Ingreso</label>
-                <input class="d-none" type="radio" name="metodo" id="gasto" >
-                <label class="p-2  text-white ms-3 rounded-2" for="gasto" >Gasto</label>
+                <input class="d-none" type="radio" name="metodo" id="gasto">
+                <label class="p-2  text-white ms-3 rounded-2" for="gasto">Gasto</label>
             </div>
             <div class="inputs">
                 <label for="motivo">Motivo</label>
@@ -52,7 +57,7 @@
             <button class="btn-reset btn btn-info text-white">Resetear gestor</button>
         </div>
     </main>
-    
+
 </body>
 
 </html>

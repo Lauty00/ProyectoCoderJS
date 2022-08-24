@@ -114,31 +114,17 @@ function resetearGestor(){
 }
 
 function mensajeAlert(p){
-    const divAlert=document.createElement('div');
 
     if(p =='error'){
-        divAlert.classList.add('text-center','p-4','bg-danger','text-white','rounded-3','mt-3');
-        divAlert.innerHTML=`
-        Ingresa los datos correctamente.
-        `;
-        form.append(divAlert);
+        alertify.set('notifier','position', 'bottom-center');
+        alertify.notify('Ingresa los datos correctamente.', 'error', 2)
     }else if(p == 'guardar'){
-        divAlert.classList.add('text-center','p-4','bg-success','text-white','rounded-3','mt-3');
-        divAlert.innerHTML=`
-        Gasto guardado correctamente.
-        `;
-        form.append(divAlert);
+        alertify.set('notifier','position', 'bottom-center');
+        alertify.notify('Gasto guardado correctamente.', 'success', 2);
     }else{
-        divAlert.classList.add('text-center','p-4','bg-success','text-white','rounded-3','mt-3');
-        divAlert.innerHTML=`
-        Ingreso guardado correctamente.
-        `;
-        form.append(divAlert);
+        alertify.set('notifier','position', 'bottom-center');
+        alertify.notify('Gasto guardado correctamente.', 'success', 2);
     }
-
-    setTimeout(()=>{
-        divAlert.style.display='none'
-    },2000)
         
 }
 
