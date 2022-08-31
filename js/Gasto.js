@@ -27,9 +27,9 @@ export default class Gasto {
         this.gastos.forEach(gasto => {
             const item=document.createElement('li');
             if(gasto.metodo){
-                item.classList.add('list__item', 'border','border-3', 'border-success')
+                item.classList.add('list__item', 'border','border-4', 'border-success')
             }else{
-                item.classList.add('list__item', 'border','border-3', 'border-danger')
+                item.classList.add('list__item', 'border','border-4', 'border-danger')
             }
             
             item.setAttribute('data-id',gasto.id);
